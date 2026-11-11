@@ -1,0 +1,38 @@
+name: Gerar IPA do iOS
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar XcodeGen
+        run: brew install xcodegen
+
+      - name: Gerar o projeto Xcode
+        run: xcodegen generate
+
+      - name: Compilar (sem assinatura)
+        run: |
+          xcodebuild -project Ecos.xcodeproj -scheme Ecos \
+            -configuration Release -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            build
+
+      - name: Montar o .ipa
+        run: |
+          mkdir -p Payload
+          cp -R build/Build/Products/Release-iphoneos/Ecos.app Payload/
+          zip -qry Ecos-de-Santa-Aurora.ipa Payload
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Ecos-de-Santa-Aurora-ipa
+          path: Ecos-de-Santa-Aurora.ipa

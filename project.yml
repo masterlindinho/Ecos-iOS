@@ -1,0 +1,38 @@
+name: Ecos
+options:
+  bundleIdPrefix: com.mastergoti
+  deploymentTarget:
+    iOS: "14.0"
+targets:
+  Ecos:
+    type: application
+    platform: iOS
+    deploymentTarget: "14.0"
+    sources:
+      - Sources
+      - Resources
+    info:
+      path: Config/Info.plist
+      properties:
+        CFBundleDisplayName: Ecos de Santa Aurora
+        CFBundleShortVersionString: "1.4"
+        CFBundleVersion: "5"
+        UILaunchScreen: {}
+        UIRequiresFullScreen: true
+        UIStatusBarHidden: true
+        UIViewControllerBasedStatusBarAppearance: true
+        ITSAppUsesNonExemptEncryption: false
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mastergoti.ecos
+        PRODUCT_NAME: Ecos
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        DEVELOPMENT_TEAM: ""

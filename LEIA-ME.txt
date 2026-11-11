@@ -1,0 +1,28 @@
+ECOS DE SANTA AURORA - app nativo para iPhone/iPad (projeto Xcode)
+
+Este é o código de um app iOS de verdade (abre o jogo em tela cheia, trava na horizontal,
+mantém a tela acesa, toca som mesmo no modo silencioso e pausa ao sair do app).
+
+=== CAMINHO A: SEM MAC (compilar na nuvem do GitHub, grátis) ===
+1. Crie uma conta e um repositório NOVO e PÚBLICO em github.com (nome livre, ex.: ecos-ios).
+2. Envie TODO o conteúdo desta pasta para o repositório (Add file > Upload files).
+   Atenção: a pasta oculta ".github" precisa subir junto. Se não subir, crie o arquivo
+   .github/workflows/build-ios.yml pelo site (Add file > Create new file) e cole o conteúdo
+   do arquivo "build-ios.yml.txt".
+3. Abra a aba "Actions" > "Gerar IPA do iOS" > "Run workflow". Espere uns 5 a 10 minutos.
+4. Baixe o resultado em "Artifacts" > Ecos-de-Santa-Aurora-ipa (vem dentro de um .zip).
+5. Instale no iPhone pelo Windows com o Sideloadly (sideloadly.io) ou AltStore:
+   conecte o iPhone, arraste o .ipa e entre com seu Apple ID (gratuito).
+   Com Apple ID gratuito o app precisa ser reinstalado a cada 7 dias.
+   Ative o "Modo Desenvolvedor" no iPhone: Ajustes > Privacidade e Segurança.
+
+=== CAMINHO B: COM MAC ===
+1. Instale o Xcode e o Homebrew. No Terminal, dentro desta pasta:
+      brew install xcodegen
+      xcodegen generate
+      open Ecos.xcodeproj
+2. No Xcode: Ecos > Signing & Capabilities > escolha o seu Team (Apple ID).
+3. Conecte o iPhone, selecione-o no topo e aperte Run (▶).
+
+Observação: este projeto não foi compilado por mim (não há Xcode no meu ambiente).
+Se o GitHub mostrar algum erro na aba Actions, me envie o texto do erro que eu corrijo.
